@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>LiveStack - introduction</title>
+
+		<meta name="description" content="Introduction to LiveStack">
+		<meta name="author" content="Longgeek">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+        <style type="text/css">
+            .reveal td, .reveal th {
+                padding-left: 10px;
+            }
+
+            .reveal td:first-child {
+                font-weight: bold;
+                background-color: #eee;
+            }
+        </style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+                <h1>LiveStack</h1>
+                <h3>Introduction</h3>
+					<p style="font-size: 70%"><small>by</small></p>
+					<p><small>ThStack Inc.</small></p>
+					<p style="font-size: 70%"><small>06.17.2014</small></p>
+				</section>
+
+				<section>
+<!--					<img src="images/livestack-logo.png" style="border: 0; box-shadow: none" alt="LiveStack">
+-->
+					<img src="images/ubuntu.png" style="display: block; float:left; text-decoration: none; color: white; margin-bottom: 20px; margin-right: 23px" alt="LiveStack">
+				</section>
+
+				<section>
+                    <h2>LiveStack?</h2>
+					<p class="fragment">
+                        Live <strong>USB|ISO</strong> OpenStack!
+					</p>
+				</section>
+
+				<section>
+                    <h2>Live?</h2>
+					<p class="fragment">
+                    Yes, In the physical machine or virtual machine for one minutes to start a <strong>openstack</strong> development environment!
+					</p>
+				</section>
+
+				<section>
+                    <h2>Only Live?</h2>
+					<p class="fragment">
+                    No, If you don't mind, you can choose to <strong>install</strong> to your hard disk!
+					</p>
+				</section>
+
+				<section>
+                <h2>System Platform?</h2>
+					<p class="fragment">
+                        Ubuntu 14.04 LTS Desktop!
+					</p>
+				</section>
+
+				<section>
+                    <h2>Who's behind LiveStack?</h2>
+					<p class="fragment">
+                    <a href="http://www.thstack.com/">ThStack</a>* and a <a href="https://github.com/livestack/livestack">community</a>.<br /><br />
+                    <span style="font-size: 60%">* ThStack, Inc. is also called<a href="http://www.pythonpie.com"> PythonPie, Inc.</a></span>
+                    </p>
+				</section>
+
+        <section>
+          <h2>Include Projects</h2>
+          <ul>
+            <li><strong>Keystone</strong>: Identity Service.</li>
+            <li class="fragment"><strong>Glance</strong>: Image Service.</li>
+            <li class="fragment"><strong>Cinder</strong>: Block Storage.</li>
+            <li class="fragment"><strong>Neutron</strong>: Networking.</li>
+            <li class="fragment"><strong>Nova</strong>: Compute Program.</li>
+            <li class="fragment"><strong>Heat</strong>: Orchestration Program.</li>
+            <li class="fragment"><strong>Swift</strong>: Object Storage.</li>
+            <li class="fragment"><strong>Trove</strong>: Database as a Service.</li>
+            <li class="fragment"><strong>Ceilometer</strong>: Telemetry.</li>
+            <li class="fragment"><strong>Horizon</strong>: Dashboard.</li>
+          </ul>
+				</section>
+
+        <section>
+          <h2>Requirements</h2>
+          <ul>
+              <li><strong>In a VM or a physical machine:</strong></li>
+            <ul>
+                <li>If in VM: Need VM software.</li>
+                <ul>
+                    <li>VMWare</li>
+                    <li>VritualBox</li>
+                    <li>Virt-Manager</li>
+                    <li>...</li>
+                </ul>
+                <li>LiveStack ISO and burn to USB</li>
+                <li>Disk > 10GB</li>
+                <li>Memory > 4GB</li>
+                <li>One or more network card..</li>
+                <li>Boot from the livestack iso|usb|cdrom, select live or install...</li>
+            </ul>
+          </ul>
+				</section>
+
+				<section>
+                <h2>Next?</h2>
+				</section>
+
+				<section>
+          <div style="margin-bottom: 50px">
+            <h2>Management</h2>
+            <p>Create neutron network; Instance Running, stopping, attaching, etc...</p>
+          </div>
+
+          <div class="fragment" style="margin-bottom: 50px">
+            <h2>In Offices</h2>
+            <p>Booting Livestack, develop. develop.. develop...</p>
+          </div>
+
+          <div class="fragment">
+            <h2>at Home</h2>
+            <p>Booting LiveStack, Develop. Develop.. Develop... sleep....Zz~</p>
+          </div>
+				</section>
+
+        <section>
+          <h2>LiveStack Status</h2>
+					<pre><code class="bash" data-trim style="font-size: 18px; margin-top: 20px;">
+$ livestack-status
+
+== Nova services ==
+nova-api:                               active
+nova-cert:                              active
+nova-compute:                           active
+nova-scheduler:                         active
+nova-conductor:                         active
+nova-consoleauth:                       active
+nova-novncproxy:                        active
+nova-objectstore:                       active
+nova-spicehtml5proxy:                   dead
+nova-xvpvncproxy:                       active
+== Glance services ==
+glance-api:                             active
+glance-registry:                        active
+== Keystone service ==
+keystone:                               active
+== Horizon service ==
+horizon:                                active
+== neutron services ==
+neutron-server:                         active
+neutron-dhcp-agent:                     active
+neutron-l3-agent:                       active
+neutron-metadata-agent:                 active
+neutron-lbaas-agent:                    active
+neutron-openvswitch-agent:              active
+neutron-vpn-agent:                      active
+neutron-metering-agent:                 dead
+== Swift services ==
+swift-proxy-server:                     active
+swift-account-server:                   active
+swift-container-server:                 active
+swift-object-server:                    active
+== Cinder services ==
+cinder-api:                             active
+cinder-scheduler:                       active
+cinder-volume:                          active
+== Ceilometer services ==
+ceilometer-api:                         active
+ceilometer-agent-central:               active
+ceilometer-agent-compute:               active
+ceilometer-collector:                   active
+ceilometer-agent-notification:          active
+== Heat services ==
+heat-api:                               active
+heat-api-cfn:                           active
+heat-api-cloudwatch:                    active
+heat-engine:                            active
+== Trove services ==
+trove-api:                              active
+trove-taskmanager:                      active
+trove-conductor:                        active
+== Support services ==
+mysql-server:                           active
+libvirt-bin:                            active
+openvswitch-switch:                     active
+rabbitmq-server:                        active
+memcached:                              active
+puppet:                                 active
+puppetmaster:                           active
+== Keystone users ==
+WARNING: Bypassing authentication using a token & endpoint (authentication credentials are being ignored).
++----------------------------------+------------+---------+--------------------------+
+|                id                |    name    | enabled |          email           |
++----------------------------------+------------+---------+--------------------------+
+| 3977b678fe1b4c4abbd2eb34e4bcf349 |   admin    |   True  |   admin@livestack.org    |
+| 4df9bea9a08c492683cf94f07f9a2c41 | ceilometer |   True  | ceilometer@livestack.org |
+| 4a73fdf2c92743758f8504d8b2bad2f9 |   cinder   |   True  |   cinder@livestack.org   |
+| 6fa09c634d6a4835971f295ba91e040d |    demo    |   True  |    demo@livestack.org    |
+| 08359022ecca4b8da52e9c12e65bb04f |   glance   |   True  |   glance@livestack.org   |
+| 2c3ba9f8fb734d92b42b065cd3760f5d |    heat    |   True  |    heat@livestack.org    |
+| 09f335395f7e4268809c8f0b1555bee2 |  neutron   |   True  |  neutron@livestack.org   |
+| 777dc32b37184c4fb3438e943759d078 |    nova    |   True  |    nova@livestack.org    |
+| e64775b1da5140f2b288c704e118cb39 |   swift    |   True  |   swift@livestack.org    |
+| c1c7f60548604b0c86ee604cb1fbbce5 |   trove    |   True  |   trove@livestack.org    |
++----------------------------------+------------+---------+--------------------------+
+== Glance images ==
++--------------------------------------+----------------------------------------------+-------------+------------------+-----------+--------+
+| ID                                   | Name                                         | Disk Format | Container Format | Size      | Status |
++--------------------------------------+----------------------------------------------+-------------+------------------+-----------+--------+
+| e719788d-a937-4b74-a982-7006152599b0 | cirros-0.3.1                                 | qcow2       | ovf              | 13147648  | active |
+| 58248345-c4cc-4959-8967-e5c7b84bac0a | Ubuntu-12.04.4-Server-Trove-Mysql-5.5-x86_64 | qcow2       | ovf              | 471730688 | active |
++--------------------------------------+----------------------------------------------+-------------+------------------+-----------+--------+
+== Nova managed services ==
++----+------------------+-----------+----------+---------+-------+----------------------------+-----------------+
+| Id | Binary           | Host      | Zone     | Status  | State | Updated_at                 | Disabled Reason |
++----+------------------+-----------+----------+---------+-------+----------------------------+-----------------+
+| 1  | nova-cert        | livestack | internal | enabled | up    | 2014-06-16T15:53:07.000000 | -               |
+| 2  | nova-consoleauth | livestack | internal | enabled | up    | 2014-06-16T15:53:08.000000 | -               |
+| 3  | nova-scheduler   | livestack | internal | enabled | up    | 2014-06-16T15:53:10.000000 | -               |
+| 4  | nova-conductor   | livestack | internal | enabled | up    | 2014-06-16T15:53:11.000000 | -               |
+| 5  | nova-compute     | livestack | nova     | enabled | up    | 2014-06-16T15:53:08.000000 | -               |
++----+------------------+-----------+----------+---------+-------+----------------------------+-----------------+
+== Nova networks ==
++----+-------+------+
+| ID | Label | Cidr |
++----+-------+------+
++----+-------+------+
+== Nova instance flavors ==
++----+-----------+-----------+------+-----------+---------+-------+-------------+-----------+
+| ID | Name      | Memory_MB | Disk | Ephemeral | Swap_MB | VCPUs | RXTX_Factor | Is_Public |
++----+-----------+-----------+------+-----------+---------+-------+-------------+-----------+
+| 1  | m1.tiny   | 512       | 1    | 0         |         | 1     | 1.0         | True      |
+| 2  | m1.small  | 2048      | 20   | 0         |         | 1     | 1.0         | True      |
+| 3  | m1.medium | 4096      | 40   | 0         |         | 2     | 1.0         | True      |
+| 4  | m1.large  | 8192      | 80   | 0         |         | 4     | 1.0         | True      |
+| 5  | m1.xlarge | 16384     | 160  | 0         |         | 8     | 1.0         | True      |
++----+-----------+-----------+------+-----------+---------+-------+-------------+-----------+
+== Nova instances ==
++----+------+--------+------------+-------------+----------+
+| ID | Name | Status | Task State | Power State | Networks |
++----+------+--------+------------+-------------+----------+
++----+------+--------+------------+-------------+----------+
+== Cinder volumes ==
++----+--------+--------------+------+-------------+----------+-------------+
+| ID | Status | Display Name | Size | Volume Type | Bootable | Attached to |
++----+--------+--------------+------+-------------+----------+-------------+
++----+--------+--------------+------+-------------+----------+-------------+
+== Trove datastores  ==
++----+------+-----------+-------------------+--------+-----------+------+
+| ID | Name | Datastore | Datastore Version | Status | Flavor ID | Size |
++----+------+-----------+-------------------+--------+-----------+------+
++----+------+-----------+-------------------+--------+-----------+------+
+== Heat stacks ==
++----+------------+--------------+---------------+
+| id | stack_name | stack_status | creation_time |
++----+------------+--------------+---------------+
++----+------------+--------------+---------------+
+== Neutron agents ==
++--------------------------------------+--------------------+-----------+-------+----------------+---------------------------+
+| id                                   | agent_type         | host      | alive | admin_state_up | binary                    |
++--------------------------------------+--------------------+-----------+-------+----------------+---------------------------+
+| 02273127-fbd6-4c30-990a-3fe99a91295b | Open vSwitch agent | livestack | :-)   | True           | neutron-openvswitch-agent |
+| 27992c4b-0be4-49ef-8124-d17a96663472 | Metering agent     | livestack | xxx   | True           | neutron-metering-agent    |
+| 3e309951-7ac2-49a4-92fe-2400a0b1a205 | Metadata agent     | livestack | :-)   | True           | neutron-metadata-agent    |
+| 6dda5c48-546f-494e-94ae-539179c95e8b | L3 agent           | livestack | :-)   | True           | neutron-l3-agent          |
+| 8c4f6f0e-dbf3-4798-a487-d2c59e6aa382 | Loadbalancer agent | livestack | :-)   | True           | neutron-lbaas-agent       |
+| c20b8386-f1b2-49e3-97c2-8d0f4ae2ecb6 | DHCP agent         | livestack | :-)   | True           | neutron-dhcp-agent        |
++--------------------------------------+--------------------+-----------+-------+----------------+---------------------------+
+== Swift datas ==
+    0    0
+== Ceilometer meters ==
++--------------------------------+-------+-----------+--------------------------------------+----------------------------------+----------------------------------+
+| Name                           | Type  | Unit      | Resource ID                          | User ID                          | Project ID                       |
++--------------------------------+-------+-----------+--------------------------------------+----------------------------------+----------------------------------+
+| image                          | gauge | image     | 58248345-c4cc-4959-8967-e5c7b84bac0a | None                             | trove                            |
+| image                          | gauge | image     | e719788d-a937-4b74-a982-7006152599b0 | None                             | d75d09bb6d35469b8275965221d73728 |
+| image.size                     | gauge | B         | 58248345-c4cc-4959-8967-e5c7b84bac0a | None                             | trove                            |
+| image.size                     | gauge | B         | e719788d-a937-4b74-a982-7006152599b0 | None                             | d75d09bb6d35469b8275965221d73728 |
+| storage.api.request            | delta | request   | None                                 | 4df9bea9a08c492683cf94f07f9a2c41 | 9d2ad365667a419883cff3fae6a2d101 |
+| storage.api.request            | delta | request   | 5f7b6466af8742879c8db65e426a7c36     | 3977b678fe1b4c4abbd2eb34e4bcf349 | 5f7b6466af8742879c8db65e426a7c36 |
+| storage.objects                | gauge | object    | 29ce6e43d1b24be7866e55eed0f8d4ae     | None                             | 29ce6e43d1b24be7866e55eed0f8d4ae |
+| storage.objects                | gauge | object    | 5f7b6466af8742879c8db65e426a7c36     | None                             | 5f7b6466af8742879c8db65e426a7c36 |
+| storage.objects                | gauge | object    | 9d2ad365667a419883cff3fae6a2d101     | None                             | 9d2ad365667a419883cff3fae6a2d101 |
+| storage.objects.containers     | gauge | container | 29ce6e43d1b24be7866e55eed0f8d4ae     | None                             | 29ce6e43d1b24be7866e55eed0f8d4ae |
+| storage.objects.containers     | gauge | container | 5f7b6466af8742879c8db65e426a7c36     | None                             | 5f7b6466af8742879c8db65e426a7c36 |
+| storage.objects.containers     | gauge | container | 9d2ad365667a419883cff3fae6a2d101     | None                             | 9d2ad365667a419883cff3fae6a2d101 |
+| storage.objects.outgoing.bytes | delta | B         | None                                 | 4df9bea9a08c492683cf94f07f9a2c41 | 9d2ad365667a419883cff3fae6a2d101 |
+| storage.objects.outgoing.bytes | delta | B         | 5f7b6466af8742879c8db65e426a7c36     | 3977b678fe1b4c4abbd2eb34e4bcf349 | 5f7b6466af8742879c8db65e426a7c36 |
+| storage.objects.size           | gauge | B         | 29ce6e43d1b24be7866e55eed0f8d4ae     | None                             | 29ce6e43d1b24be7866e55eed0f8d4ae |
+| storage.objects.size           | gauge | B         | 5f7b6466af8742879c8db65e426a7c36     | None                             | 5f7b6466af8742879c8db65e426a7c36 |
+| storage.objects.size           | gauge | B         | 9d2ad365667a419883cff3fae6a2d101     | None                             | 9d2ad365667a419883cff3fae6a2d101 |
++--------------------------------+-------+-----------+--------------------------------------+----------------------------------+----------------------------------+
+          </code></pre>
+          <p>Health detection command simply</p>
+				</section>
+
+				<section>
+					<h1>Thanks!</h1>
+				</section>
+
+        <section>
+          <p><a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img style="border: 0;" src="images/cc-by-sa.png" /></a></p>
+          <p style="font-size: 50%">Attributions:</p>
+          <ul style="font-size: 50%; list-style-type: none;">
+            <li>http://www.thstack.com/</li>
+          </ul>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
