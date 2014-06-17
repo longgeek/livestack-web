@@ -1,4 +1,4 @@
 LiveStack-Web
 =============
 
-Web
+Website: http://livestack.org
