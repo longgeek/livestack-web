@@ -17,5 +17,4 @@ class Index(View):
 class Download(View):
     def post(self, request):
         context = {}
-        #return render_to_response('index.html', context)
         return HttpResponse("Checkout your email right now!")

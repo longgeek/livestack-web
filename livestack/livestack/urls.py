@@ -38,6 +38,6 @@ urlpatterns = patterns('',
 
 
 urlpatterns += patterns('',
-    url("^$", views.Index.as_view(), name="index")
+    url("^$", views.Index.as_view(), name="index"),
     url("^download/$", views.Download.as_view(), name="download")
 )
