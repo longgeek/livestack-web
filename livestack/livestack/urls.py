@@ -30,6 +30,10 @@ urlpatterns = patterns('',
     url(r'^lib/(?P<path>.*)$',
         'django.views.static.serve',
         {"document_root": os.path.join(PROJECT_ROOT, "apphome/templates/lib").replace("\\", "/")}),
+
+    url(r'^plugin/(?P<path>.*)$',
+        'django.views.static.serve',
+        {"document_root": os.path.join(PROJECT_ROOT, "apphome/templates/plugin").replace("\\", "/")}),
 )
 
 
