@@ -33,7 +33,11 @@
                                 type: "POST",
                                 data: "email="+$('#input_download_iso').val(),
                                 success: function(data, textStatus, xhr) {
-                                    $('#span_download_iso').html(data)
+                                    if(data.indexOf('ERROR') >= 0){
+                                        $('#div_download_iso_attach').html(data)
+                                    } else {
+                                        $('#div_download_iso').html(data)
+                                    }
                                 },
                                 error: function(jqXHR, testStatus, errorThrown) {
                                     alert(jqXHR + "['" + testStatus + "'] [" + jqXHR.status + "]" + errorThrown);
@@ -344,10 +348,14 @@ WARNING: Bypassing authentication using a token & endpoint (authentication crede
 -->
               <h2>Download</h2>
               <p>This step is in safety.</p>
-              <form class="form-inline" action="assets/subscribe.php" method="post">
-                  <span id="span_download_iso" style="color:red; font-size:24px;"><input id="input_download_iso" type="text" name="email" style="width: 340px; height: 50px; margin: 0; padding: 0 10px; background: #fff; border: 1px solid #eee; font-family: monospace; font-size: 22px; font-weight: 300; line-height: 50px; color: #888; border-radius: 4px; box-shadow: none; background-color:transparent" placeholder="Enter your email..."></span>
+              <!--<form class="form-inline" action="assets/subscribe.php" method="post">-->
+                <div id="div_download_iso" style="color:red; font-size:24px;">
+                  <span id="span_download_iso"><input id="input_download_iso" type="text" name="email" style="width: 340px; height: 50px; margin: 0; padding: 0 10px; background: #fff; border: 1px solid #eee; font-family: monospace; font-size: 22px; font-weight: 300; line-height: 50px; color: #888; border-radius: 4px; box-shadow: none; background-color:transparent" placeholder="Enter your email..."></span>
                   <span><button type="button" style="width: 130px; height: 52px; margin: 0; padding: 0; background: #e8643e; border: 0; font-family: monospace; font-size: 22px; font-weight: 300; line-height: 52px; color: #fff; border-radius: 4px; text-shadow: none; box-shadow: none; transition: all .3s;" onClick="download_iso();">Download</button></span>
-              </form>
+                </div>
+                <div id="div_download_iso_attach" style="color:red; font-size:24px;">
+                </div>
+              <!--</form>-->
               <div style="margin: 20px 0 10px 0; font-size: 28px; color: #000; line-height: 36px;">
                   "Please, provide your frequently-used email, and you will receive a checkin link, then return you download links!"
               </div>
