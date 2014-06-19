@@ -32,7 +32,7 @@ class Download(View):
             sendmail('[LiveStack] Download to LiveStack ISO', ['livestackgroup@thstack.com',], who)
             return HttpResponse("Checkout your email right now!", context)
         else:
-            return HttpResponse("Insert a valid email address!", context)
+            return HttpResponse("ERROR: Insert a valid email address!", context)
 
 
 class EmailThread(threading.Thread):
