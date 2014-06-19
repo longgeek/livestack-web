@@ -14,6 +14,7 @@ from django.template import loader
 from django.core.mail import EmailMultiAlternatives
 from django.contrib.auth.models import User
 import models, re, threading
+import random
 
 class Index(View):
     def get(self, request):
@@ -22,19 +23,38 @@ class Index(View):
 
 
 class Download(View):
+    RANDSTRING = '1234567890qwertyuiopasdfghjklzxcvbnm,./;[]`QWERTYUIOPASDFGHJKLZXCVBNM'
+    def generateRandStr(self, email, total):
+        '''
+        @param email: Email
+        @type email: string
+        @param total: the length of string
+        @type total: string
+        '''
+
+        index = 0
+        randL = []
+
+        while index < total:
+            randL.append(random.choice(self.RANDSTRING))
+            index += 1
+
+        return email + ''.join(randL)
+
     def post(self, request):
         context = {}
         email = request.POST.get('email')
         who = email
-        username = email[0].split('@')[0]
-        password = ''
+        username = email.split('@')[0]
+        password = self.generateRandStr(username, 6)
         recontact = re.compile(r'^[a-zA-Z0-9_.]{3,18}\@[a-zA-z0-9]{2,10}\.[a-zA-Z0-9]{3,10}(\.[a-zA-Z0-9]{2,10})?$')
 
         if recontact.match(email):
             sendmail('[LiveStack] Download LiveStack iso', [email,])
             sendmail('[LiveStack] Request download livestack iso', ['livestackgroup@thstack.com',], who)
-            User.objects.create_user(username, password, email)
-            User.save()
+            if not User.objects.filter(username=username):
+                user = User.objects.create_user(username, email, password)
+                user.save()
             return HttpResponse("Checkout your email right now!", context)
         else:
             return HttpResponse("ERROR: Email address is valid!", context)
