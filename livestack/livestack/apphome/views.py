@@ -31,8 +31,8 @@ class Download(View):
         recontact = re.compile(r'^[a-zA-Z0-9_.]{3,18}\@[a-zA-z0-9]{2,10}\.[a-zA-Z0-9]{3,10}(\.[a-zA-Z0-9]{2,10})?$')
 
         if recontact.match(email):
-            sendmail('[LiveStack] Download to LiveStack ISO', [email,])
-            sendmail('[LiveStack] Download to LiveStack ISO', ['livestackgroup@thstack.com',], who)
+            sendmail('[LiveStack] Download LiveStack iso', [email,])
+            sendmail('[LiveStack] Request download livestack iso', ['livestackgroup@thstack.com',], who)
             User.objects.create_user(username, password, email)
             User.save()
             return HttpResponse("Checkout your email right now!", context)
