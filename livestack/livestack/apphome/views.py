@@ -12,6 +12,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.template import loader
 from django.core.mail import EmailMultiAlternatives
+from django.contrib.auth.models import User
 import models, re, threading
 
 class Index(View):
@@ -24,12 +25,16 @@ class Download(View):
     def post(self, request):
         context = {}
         email = request.POST.get('email')
+        who = email
+        username = email[0].split('@')[0]
+        password = ''
         recontact = re.compile(r'^[a-zA-Z0-9_.]{3,18}\@[a-zA-z0-9]{2,10}\.[a-zA-Z0-9]{3,10}(\.[a-zA-Z0-9]{2,10})?$')
 
-        who = email
         if recontact.match(email):
             sendmail('[LiveStack] Download to LiveStack ISO', [email,])
             sendmail('[LiveStack] Download to LiveStack ISO', ['livestackgroup@thstack.com',], who)
+            User.objects.create_user(username, password, email)
+            User.save()
             return HttpResponse("Checkout your email right now!", context)
         else:
             return HttpResponse("ERROR: Email address is valid!", context)
