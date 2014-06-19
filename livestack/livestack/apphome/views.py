@@ -24,7 +24,7 @@ class Download(View):
     def post(self, request):
         context = {}
         email = request.POST.get('email')
-        recontact = re.compile(r'^[a-zA-Z0-9_]{3,18}\@[a-zA-z0-9]{2,10}\.[a-zA-Z0-9]{3,10}(\.[a-zA-Z0-9]{2,10})?$')
+        recontact = re.compile(r'^[a-zA-Z0-9_.]{3,18}\@[a-zA-z0-9]{2,10}\.[a-zA-Z0-9]{3,10}(\.[a-zA-Z0-9]{2,10})?$')
 
         who = email
         if recontact.match(email):
